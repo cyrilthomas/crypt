@@ -1,50 +1,58 @@
-<html><head>
-<title>Crypt</title>
-  <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<html>
 
-  <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-          
-<script type="text/javascript" src="alphac.js"></script>
-<script type="text/javascript" src="md5.js"></script>
-<script type="text/javascript" src="timer.js"></script>
-<script type="text/javascript">
-function process(on) {
-var fe = document.fe;
-var ke = fe.key.value;
-var re = fe.re;
-var f = timer(function() {
-re.value = alphac(re.value, ke, md5(ke), on)
-});
-var t = f();
-var d = re.value.length;
-var r = Math.round(d / t * 1000);
-fe.time.value = r + 'B/s ' + t + 'ms ' + d + 'B';
-}
-</script>
+<head>
+    <title>Crypt</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script type="text/javascript" src="alphac.js"></script>
+    <script type="text/javascript" src="md5.js"></script>
+    <script type="text/javascript" src="timer.js"></script>
+    <script type="text/javascript">
+        function process(on) {
+            var fe = document.fe;
+            var ke = fe.key.value;
+            var re = fe.re;
+            var f = timer(function () {
+                re.value = alphac(re.value, ke, md5(ke), on)
+            });
+            var t = f();
+            var d = re.value.length;
+            var r = Math.round(d / t * 1000);
+            fe.time.value = r + 'B/s ' + t + 'ms ' + d + 'B';
+        }
+    </script>
 </head>
+
 <body>
     <div class="container">
-<h1>Message Encryptor</h1>
-<form action="?" name="fe"
-onsubmit="process(window.a=!window.a); return false">
-<div align="center">
-<!-- <textarea rows="12" cols="64" name="re">
-Type or paste here.
-</textarea> -->
-<div class="input-field col s12">
-        <textarea id="textarea1" class="materialize-textarea" name="re"></textarea>
-        <label for="textarea1">Textarea</label>
-      </div>
-Key: <input type="text" name="key" size="24" />
-Time: <input type="text" name="time" size="24" /><br />
-<a class="waves-effect waves-light btn"
-onclick="process(1)">Encrypt</a>
-<a class="waves-effect waves-light btn"
-onclick="process(0)">Decrypt</a>
-</p>
-</div>
-</form>
-</div>
-</body></html>
+        <h1>Message Encryptor</h1>
+        <form action="?" name="fe" onsubmit="process(window.a=!window.a); return false">
+            <div align="center">
+
+                <div class="input-field col s12">
+                    <textarea id="textarea1" class="materialize-textarea" name="re"></textarea>
+                    <label for="textarea1">Textarea</label>
+                </div>
+
+                <div class="input-field col s6">
+                    <input id="key_text" type="text" data-length="10" name="key">
+                    <label for="key_text">Key</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="time_text" type="text" data-length="10" name="time">
+                    <label for="time_text">Time</label>
+                </div>
+
+                <a class="waves-effect waves-light btn" onclick="process(1)">Encrypt</a>
+                <a class="waves-effect waves-light btn" onclick="process(0)">Decrypt</a>
+                </p>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
