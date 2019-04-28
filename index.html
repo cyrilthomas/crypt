@@ -1,6 +1,8 @@
 <html>
 
 <head>
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, user-scalable=0, maximum-scale=1, minimum-scale=1">
     <title>Crypt</title>
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -28,30 +30,40 @@
 </head>
 
 <body>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo center">Crypt</a>
+        </div>
+    </nav>
     <div class="container">
-        <h1>Message Encryptor</h1>
-        <form action="?" name="fe" onsubmit="process(window.a=!window.a); return false">
-            <div align="center">
-
-                <div class="input-field col s12">
-                    <textarea id="textarea1" class="materialize-textarea" name="re"></textarea>
-                    <label for="textarea1">Textarea</label>
+        <div class="row">
+            <form action="?" name="fe" onsubmit="process(window.a=!window.a); return false">
+                <div align="center">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea id="textarea1" class="materialize-textarea" name="re"
+                                style="min-height:150px"></textarea>
+                            <label for="textarea1">Message</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="key_text" type="text" data-length="10" name="key" />
+                            <label for="key_text">Key</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="time_text" type="text" data-length="10" value="-" disabled name="time"/>
+                            <label for="time_text"></label>
+                        </div>
+                    </div>
+                    <a class="waves-effect waves-light btn" onclick="process(1)">Encrypt</a>
+                    <a class="waves-effect waves-light btn" onclick="process(0)">Decrypt</a>
+                    </p>
                 </div>
-
-                <div class="input-field col s6">
-                    <input id="key_text" type="text" data-length="10" name="key">
-                    <label for="key_text">Key</label>
-                </div>
-                <div class="input-field col s6">
-                    <input id="time_text" type="text" data-length="10" name="time">
-                    <label for="time_text">Time</label>
-                </div>
-
-                <a class="waves-effect waves-light btn" onclick="process(1)">Encrypt</a>
-                <a class="waves-effect waves-light btn" onclick="process(0)">Decrypt</a>
-                </p>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 </body>
 
